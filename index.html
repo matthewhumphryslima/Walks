@@ -1,63 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lima Walk & Talk</title>
+    <title>Walking Group - Conversation Cards</title>
     <style>
-        body { font-family: 'Helvetica', sans-serif; text-align: center; padding: 20px; background: #1a1a1a; color: white; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: auto; }
-        button { border: none; padding: 50px 10px; font-size: 1.1rem; border-radius: 12px; cursor: pointer; font-weight: bold; transition: transform 0.1s; }
+        :root {
+            --yellow: #ffeb3b;
+            --blue: #2196f3;
+            --red: #f44336;
+            --green: #4caf50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+            margin-bottom: 30px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #question-en {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        #question-es {
+            font-size: 1.3rem;
+            color: #666;
+            font-style: italic;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+        button {
+            border: none;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
         button:active { transform: scale(0.95); }
-        .yellow { background: #f1c40f; color: #333; }
-        .blue { background: #3498db; color: white; }
-        .red { background: #e74c3c; color: white; }
-        .green { background: #2ecc71; color: white; }
-        #display { margin-top: 30px; padding: 25px; background: #2c3e50; border-radius: 15px; min-height: 120px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid #444; }
-        .lang-en { font-style: italic; color: #bdc3c7; margin-top: 10px; display: block; }
+        .btn-yellow { background-color: var(--yellow); color: #444; text-shadow: none; }
+        .btn-blue { background-color: var(--blue); }
+        .btn-red { background-color: var(--red); }
+        .btn-green { background-color: var(--green); }
     </style>
 </head>
 <body>
-    <h1>Walking Group Randomizer</h1>
-    <div class="grid">
-        <button class="yellow" onclick="generate('yellow')">YELLOW<br>(Icebreakers)</button>
-        <button class="blue" onclick="generate('blue')">BLUE<br>(Reflective)</button>
-        <button class="red" onclick="generate('red')">RED<br>(Existential)</button>
-        <button class="green" onclick="generate('green')">GREEN<br>(Hypothetical)</button>
+
+    <div class="card" id="card">
+        <div id="question-en">Tap a color to start!</div>
+        <div id="question-es">¡Toca un color para comenzar!</div>
     </div>
-    <div id="display"><p>Tap a color to start!</p></div>
+
+    <div class="button-grid">
+        <button class="btn-yellow" onclick="getQuestion('yellow')">Yellow</button>
+        <button class="btn-blue" onclick="getQuestion('blue')">Blue</button>
+        <button class="btn-red" onclick="getQuestion('red')">Red</button>
+        <button class="btn-green" onclick="getQuestion('green')">Green</button>
+    </div>
 
     <script>
         const questions = {
             yellow: [
-                { es: "¿Cuál es tu 'huarique' favorito en Lima?", en: "What's your favorite hidden gem 'huarique' in Lima?" },
-                { es: "¿Qué hábito raro tienes?", en: "What's a weird habit you have?" },
-                { es: "¿Cuál es el mejor cumplido que has recibido?", en: "What's the best compliment you've ever received?" }
+                { en: "What is your favorite district in Lima and why?", es: "¿Cuál es tu distrito favorito en Lima y por qué?" },
+                { en: "What is the best dish you've eaten this week?", es: "¿Cuál es el mejor plato que has comido esta semana?" },
+                { en: "How long have you lived in Peru?", es: "¿Cuánto tiempo llevas viviendo en Perú?" },
+                { en: "What’s your go-to order at a pollería?", es: "¿Qué es lo que siempre pides en una pollería?" },
+                { en: "Which do you prefer: Picarones or Churros?", es: "¿Qué prefieres: Picarones o Churros?" },
+                { en: "What is your favorite place to take a walk in the city?", es: "¿Cuál es tu lugar favorito para caminar en la ciudad?" },
+                { en: "Beach or mountains for a weekend trip?", es: "¿Playa o sierra para un viaje de fin de semana?" },
+                { en: "What's the most 'Limeño' thing you've done lately?", es: "¿Qué es lo más limeño que has hecho últimamente?" },
+                { en: "Do you prefer sweet or savory breakfasts?", es: "¿Prefieres los desayunos dulces o salados?" },
+                { en: "What’s a hobby you’ve picked up recently?", es: "¿Qué hobby has empezado hace poco?" },
+                { en: "What is your favorite Peruvian fruit?", es: "¿Cuál es tu fruta peruana favorita?" },
+                { en: "Are you a morning person or a night owl?", es: "¿Eres una persona mañanera o noctámbula?" },
+                { en: "What is the best concert you've ever been to?", es: "¿Cuál ha sido el mejor concierto al que has ido?" },
+                { en: "What’s your favorite way to spend a Sunday?", es: "¿Cuál es tu forma favorita de pasar un domingo?" },
+                { en: "Do you have any pets?", es: "¿Tienes mascotas?" },
+                { en: "What’s the last movie that made you laugh?", es: "¿Cuál es la última película que te hizo reír?" },
+                { en: "If you could only eat one thing for a month, what would it be?", es: "Si pudieras comer solo una cosa por un mes, ¿qué sería?" },
+                { en: "What is your favorite season in Lima?", es: "¿Cuál es tu estación favorita en Lima?" },
+                { en: "Do you prefer coffee or tea?", es: "¿Prefieres café o té?" },
+                { en: "What’s a hidden gem in Surquillo?", es: "¿Qué 'huarique' o joya oculta conoces en Surquillo?" }
             ],
             blue: [
-                { es: "¿Qué significa 'hogar' para ti ahora?", en: "What does 'home' mean to you now?" },
-                { es: "¿Qué creencia has cambiado recientemente?", en: "What is a belief you've recently changed?" },
-                { es: "¿Qué sonido te trae paz?", en: "What sound brings you peace?" }
+                { en: "What is a lesson you learned the hard way?", es: "¿Qué lección aprendiste por las malas?" },
+                { en: "What are you most grateful for today?", es: "¿De qué estás más agradecido hoy?" },
+                { en: "Who has been the most influential person in your life?", es: "¿Quién ha sido la persona más influyente en tu vida?" },
+                { en: "What is a goal you're currently working toward?", es: "¿En qué meta estás trabajando actualmente?" },
+                { en: "What does 'home' mean to you?", es: "¿Qué significa 'hogar' para ti?" },
+                { en: "What is a fear you’ve overcome?", es: "¿Qué miedo has superado?" },
+                { en: "When do you feel most like yourself?", es: "¿Cuándo te sientes más tú mismo?" },
+                { en: "What is a habit you’d like to change?", es: "¿Qué hábito te gustaría cambiar?" },
+                { en: "How do you handle stress or burnout?", es: "¿Cómo manejas el estrés o el agotamiento?" },
+                { en: "What is the most beautiful place you've ever seen?", es: "¿Cuál es el lugar más hermoso que has visto?" },
+                { en: "What's a piece of advice that stuck with you?", es: "¿Qué consejo se te quedó grabado?" },
+                { en: "What are you proud of but rarely talk about?", es: "¿De qué te sientes orgulloso pero rara vez hablas?" },
+                { en: "How has your perspective changed in the last year?", es: "¿Cómo ha cambiado tu perspectiva en el último año?" },
+                { en: "What do you value most in a friendship?", es: "¿Qué es lo que más valoras en una amistad?" },
+                { en: "What is your favorite memory from childhood?", es: "¿Cuál es tu recuerdo favorito de la infancia?" },
+                { en: "How do you recharge your energy?", es: "¿Cómo recargas energías?" },
+                { en: "What’s a risk you’re glad you took?", es: "¿Qué riesgo te alegra haber tomado?" },
+                { en: "What does success look like to you?", es: "¿Cómo se ve el éxito para ti?" },
+                { en: "What is a book or film that changed your mind?", es: "¿Qué libro o película te hizo cambiar de opinión?" },
+                { en: "If you could send a message to your younger self, what would it be?", es: "Si pudieras mandarle un mensaje a tu 'yo' más joven, ¿qué le dirías?" }
             ],
             red: [
-                { es: "¿De qué te sientes más orgulloso pero rara vez hablas?", en: "What are you most proud of but rarely talk about?" },
-                { es: "Si hoy fuera tu último día, ¿a quién llamarías?", en: "If today was your last day, who would you call?" },
-                { es: "¿Qué legado quieres dejar?", en: "What legacy do you want to leave behind?" }
+                { en: "If you could know the absolute truth to one question, what would you ask?", es: "Si pudieras saber la verdad absoluta de una sola pregunta, ¿qué preguntarías?" },
+                { en: "What do you want to be remembered for?", es: "¿Por qué te gustaría ser recordado?" },
+                { en: "Does everything happen for a reason, or is it just chaos?", es: "¿Crees que todo pasa por algo o es solo caos?" },
+                { en: "What is the meaning of a 'good life'?", es: "¿Qué significa tener una 'buena vida'?" },
+                { en: "If you could change one thing about the world, what would it be?", es: "Si pudieras cambiar una sola cosa del mundo, ¿qué sería?" },
+                { en: "What is the most important quality in a human being?", es: "¿Cuál es la cualidad más importante en un ser humano?" },
+                { en: "Do you believe in soulmates?", es: "¿Crees en las almas gemelas?" },
+                { en: "What is the hardest truth you’ve had to accept?", es: "¿Cuál es la verdad más dura que has tenido que aceptar?" },
+                { en: "Is it more important to be respected or liked?", es: "¿Es más importante ser respetado o caer bien?" },
+                { en: "What gives your life a sense of purpose?", es: "¿Qué le da sentido a tu vida?" },
+                { en: "What do you think happens after we die?", es: "¿Qué crees que pasa después de morir?" },
+                { en: "Can people truly change?", es: "¿Puede la gente cambiar de verdad?" },
+                { en: "What is the biggest sacrifice you've made?", es: "¿Cuál es el mayor sacrificio que has hecho?" },
+                { en: "Is world peace actually possible?", es: "¿Es realmente posible la paz mundial?" },
+                { en: "What is something you’d be willing to die for?", es: "¿Por qué cosa estarías dispuesto a morir?" },
+                { en: "Do we have free will, or is life predetermined?", es: "¿Tenemos libre albedrío o la vida ya está predeterminada?" },
+                { en: "What is the most profound experience you've ever had?", es: "¿Cuál es la experiencia más profunda que has tenido?" },
+                { en: "What defines 'who' someone is?", es: "¿Qué define quién es alguien realmente?" },
+                { en: "If you could live forever, would you?", es: "Si pudieras vivir para siempre, ¿lo harías?" },
+                { en: "What is the greatest challenge facing humanity today?", es: "¿Cuál es el mayor desafío que enfrenta la humanidad hoy?" }
             ],
             green: [
-                { es: "Si pudieras teletransportarte una vez, ¿a dónde irías?", en: "If you could teleport once, where would you go?" },
-                { es: "¿En qué trabajo serías el peor del mundo?", en: "What job would you be the absolute worst at?" },
-                { es: "Si ganaras la tinka mañana, ¿qué sería lo primero que harías?", en: "If you won the lottery tomorrow, what's the first thing you'd do?" }
+                { en: "If you won the lottery tomorrow, what is the first thing you'd buy?", es: "Si ganaras la lotería mañana, ¿qué sería lo primero que comprarías?" },
+                { en: "If you could have any superpower, what would it be?", es: "Si pudieras tener cualquier superpoder, ¿cuál sería?" },
+                { en: "If you could travel to any year, past or future, where would you go?", es: "Si pudieras viajar a cualquier año, pasado o futuro, ¿a dónde irías?" },
+                { en: "If you could talk to animals, which one would you interview first?", es: "Si pudieras hablar con los animales, ¿a cuál entrevistarías primero?" },
+                { en: "If you were stranded on a desert island, which 3 people would you bring?", es: "Si te quedaras varado en una isla desierta, ¿a qué 3 personas llevarías?" },
+                { en: "If you could teleport, but only to places you've already been, where would you go most?", es: "Si pudieras teletransportarte, pero solo a lugares donde ya has estado, ¿a dónde irías más?" },
+                { en: "If you could be a character in any movie, who would you be?", es: "Si pudieras ser un personaje de cualquier película, ¿quién serías?" },
+                { en: "If you had a time machine, would you go back and meet your ancestors?", es: "Si tuvieras una máquina del tiempo, ¿irías atrás para conocer a tus antepasados?" },
+                { en: "If aliens landed on Earth today, would you be scared or excited?", es: "Si los extraterrestres aterrizaran hoy en la Tierra, ¿tendrías miedo o estarías emocionado?" },
+                { en: "If you could swap lives with someone for a day, who would it be?", es: "Si pudieras intercambiar tu vida con alguien por un día, ¿con quién sería?" },
+                { en: "If you could master any musical instrument instantly, which one?", es: "Si pudieras dominar cualquier instrumento musical al instante, ¿cuál elegirías?" },
+                { en: "If you were a ghost, who would you haunt (just for fun)?", es: "Si fueras un fantasma, ¿a quién asustarías (solo por diversión)?" },
+                { en: "If you could live in any fictional world, where would it be?", es: "Si pudieras vivir en cualquier mundo ficticio, ¿dónde sería?" },
+                { en: "If you were the president for one day, what law would you pass?", es: "Si fueras presidente por un día, ¿qué ley aprobarías?" },
+                { en: "If you had to live without one of your 5 senses, which one would you give up?", es: "Si tuvieras que vivir sin uno de tus 5 sentidos, ¿cuál sacrificarías?" },
+                { en: "If you could design a new planet, what would it look like?", es: "Si pudieras diseñar un planeta nuevo, ¿cómo sería?" },
+                { en: "If you found a magic lamp, what would your three wishes be?", es: "Si encontraras una lámpara mágica, ¿cuáles serían tus tres deseos?" },
+                { en: "If you could dinner with any historical figure, who would it be?", es: "Si pudieras cenar con cualquier personaje histórico, ¿quién sería?" },
+                { en: "If you were an animal, which one would match your personality?", es: "Si fueras un animal, ¿cuál encajaría con tu personalidad?" },
+                { en: "If you had to move to another country tomorrow, where would you go?", es: "Si tuvieras que mudarte a otro país mañana, ¿a dónde irías?" }
             ]
         };
 
-        function generate(color) {
+        function getQuestion(color) {
             const list = questions[color];
-            const q = list[Math.floor(Math.random() * list.length)];
-            document.getElementById('display').innerHTML = `
-                <strong style="color:white; font-size:1.4rem;">${q.es}</strong>
-                <span class="lang-en">${q.en}</span>
-            `;
+            const randomIndex = Math.floor(Math.random() * list.length);
+            const selection = list[randomIndex];
+            
+            document.getElementById('question-en').innerText = selection.en;
+            document.getElementById('question-es').innerText = selection.es;
+            
+            // Subtle feedback: change card border color to match
+            document.getElementById('card').style.borderTop = `10px solid var(--${color})`;
         }
     </script>
 </body>
