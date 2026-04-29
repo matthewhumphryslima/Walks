@@ -3,82 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walking Group Cards</title>
+    <title>Wednesday Walks With Matthew</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-            background-color: #1a1a1a; 
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-
-        .question-display {
-            width: 100%;
-            max-width: 600px;
-            background: #2a2a2a;
-            border: 5px solid #444;
-            border-radius: 20px;
-            padding: 40px 25px;
-            margin-bottom: 25px;
-            min-height: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            transition: border-color 0.3s ease;
-        }
-
-        #en { font-size: 1.6rem; margin-bottom: 20px; display: block; font-weight: 600; line-height: 1.3; }
-        #es { font-size: 1.3rem; color: #aaa; display: block; font-style: italic; line-height: 1.3; }
-
-        .controls {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        button {
-            padding: 25px 10px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: transform 0.1s;
-        }
-
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #1a1a1a; color: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+        .main-title { color: #ffeb3b; font-size: 1.8rem; margin: 10px 0 25px 0; text-align: center; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; }
+        .question-display { width: 100%; max-width: 600px; background: #2a2a2a; border: 5px solid #444; border-radius: 20px; padding: 35px 20px; margin-bottom: 25px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-align: center; }
+        #en { font-size: 1.5rem; margin-bottom: 15px; display: block; font-weight: 600; line-height: 1.3; }
+        #es { font-size: 1.2rem; color: #aaa; display: block; font-style: italic; line-height: 1.3; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 600px; }
+        button { padding: 22px 5px; font-size: 1.1rem; font-weight: 800; border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase; transition: transform 0.1s; }
         .yellow { background-color: #ffeb3b; color: #000; }
-        .blue   { background-color: #2196f3; color: #fff; }
-        .red    { background-color: #f44336; color: #fff; }
-        .green  { background-color: #4caf50; color: #fff; }
-
-        button:active { transform: scale(0.95); filter: brightness(1.1); }
+        .blue { background-color: #2196f3; color: #fff; }
+        .red { background-color: #f44336; color: #fff; }
+        .green { background-color: #4caf50; color: #fff; }
+        .rng-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid #333; width: 100%; max-width: 600px; text-align: center; }
+        .rng-display { font-size: 3rem; font-weight: bold; color: #ffeb3b; margin-bottom: 5px; height: 60px; }
+        .btn-rng { background-color: #444; color: white; width: auto; padding: 12px 25px; font-size: 0.9rem; border-radius: 10px; border: none; }
+        button:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
-
+    <h1 class="main-title">Wednesday Walks With Matthew</h1>
+<body>
     <div class="question-display" id="display">
         <span id="en">Tap a color to get a question!</span>
         <span id="es">¡Toca un color para una pregunta!</span>
     </div>
-
     <div class="controls">
         <button class="yellow" onclick="pick('yellow')">Yellow</button>
         <button class="blue" onclick="pick('blue')">Blue</button>
         <button class="red" onclick="pick('red')">Red</button>
         <button class="green" onclick="pick('green')">Green</button>
     </div>
-
+    <div class="rng-section">
+        <div class="rng-display" id="number-out">-</div>
+        <button class="btn-rng" onclick="generateNumber()">Get Random Number (1-100)</button>
+    </div>
     <script>
         const questions = {
             yellow: [
@@ -124,7 +84,7 @@
                 { en: "What is the most famous landmark you've seen?", es: "¿Cuál es el lugar histórico más famoso que has visitado?" },
                 { en: "What is your favourite restaurant in Lima?", es: "¿Cuál es tu restaurante favorito en Lima?" },
                 { en: "If you have a pet or a child what did you name them and why?", es: "Si tienes mascota o hijos, ¿qué nombres les pusiste y por qué?" }
-                ],
+            ],
             blue: [
                 { en: "What is a lesson you learned the hard way?", es: "¿Qué lección aprendiste por las malas?" },
                 { en: "What are you most grateful for today?", es: "¿De qué estás más agradecido hoy?" },
@@ -173,7 +133,7 @@
                 { en: "Describe a time somebody broke your trust", es: "Cuéntanos de alguna vez que alguien traicionó tu confianza." },
                 { en: "What is a challenge you've overcome recently?", es: "¿Qué desafío has superado hace poco?" },
                 { en: "Tell me something you loved about a family member who is no longer with us", es: "Dime algo que amabas de un familiar que ya no está con nosotros." }
-                ],
+            ],
             red: [
                 { en: "If you could know the absolute truth to one question, what would you ask?", es: "Si pudieras saber la verdad absoluta sobre una sola pregunta, ¿qué preguntarías?" },
                 { en: "What do you want to be remembered for?", es: "¿Por qué te gustaría ser recordado?" },
@@ -219,7 +179,7 @@
                 { en: "What keeps you up at night?", es: "¿Qué es lo que no te deja dormir por las noches?" },
                 { en: "Have you ever seen or interacted with a ghost?", es: "¿Alguna vez has visto o interactuado con un fantasma?" },
                 { en: "What do you pray or wish for the most?", es: "¿Qué es lo que más pides o deseas?" }
-                ],
+            ],
             green: [
                 { en: "If you won the lottery tomorrow, what is the first thing you'd buy?", es: "Si ganaras la lotería mañana, ¿qué sería lo primero que comprarías?" },
                 { en: "If you could have any superpower, what would it be?", es: "Si pudieras tener cualquier superpoder, ¿cuál sería?" },
@@ -268,14 +228,8 @@
                 { en: "If you could experience one moment in history, which would it be?", es: "Si pudieras presenciar un momento de la historia, ¿cuál sería?" }
             ]
         };
-
-        function pick(color) {
-            const list = questions[color];
-            const q = list[Math.floor(Math.random() * list.length)];
-            document.getElementById('en').innerText = q.en;
-            document.getElementById('es').innerText = q.es;
-            document.getElementById('display').style.borderColor = getComputedStyle(document.querySelector('.' + color)).backgroundColor;
-        }
+        function pick(color) { const list = questions[color]; const q = list[Math.floor(Math.random() * list.length)]; document.getElementById('en').innerText = q.en; document.getElementById('es').innerText = q.es; document.getElementById('display').style.borderColor = getComputedStyle(document.querySelector('.' + color)).backgroundColor; }
+        function generateNumber() { const num = Math.floor(Math.random() * 100) + 1; document.getElementById('number-out').innerText = num; }
     </script>
 </body>
 </html>
