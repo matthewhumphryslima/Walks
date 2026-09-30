@@ -5,67 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wednesday Walks With Matthew</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: #1a1a1a; 
-            color: white; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: flex-start; 
-            min-height: 100vh; 
-            margin: 0; 
-            padding: 10px; 
-            box-sizing: border-box; 
-        }
-        
-        .main-title { 
-            color: #ffffff; 
-            font-size: 1.4rem; 
-            margin: 10px 0 15px 0; 
-            text-align: center; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            font-weight: 900; 
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
-        .question-display { 
-            width: 100%; 
-            max-width: 600px; 
-            background: #2a2a2a; 
-            border: 5px solid #444; 
-            border-radius: 15px; 
-            padding: 30px 20px; 
-            margin-bottom: 20px; 
-            min-height: 180px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
-            text-align: center; 
+        .main-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin: 10px 0 15px 0;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 900;
+        }
+
+        .question-display {
+            width: 100%;
+            max-width: 600px;
+            background: #2a2a2a;
+            border: 5px solid #444;
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
             transition: border-color 0.3s;
         }
 
         #en { font-size: 1.4rem; margin-bottom: 15px; display: block; font-weight: 600; line-height: 1.3; }
         #es { font-size: 1.2rem; color: #aaa; display: block; font-style: italic; line-height: 1.3; }
 
-        .controls { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 12px; 
-            width: 100%; 
-            max-width: 600px; 
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            max-width: 600px;
         }
-        
-        button { 
-            padding: 20px 5px; 
-            font-size: 1.1rem; 
-            font-weight: 800; 
-            border: none; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            transition: transform 0.1s; 
+
+        button {
+            padding: 20px 5px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.1s;
         }
 
         .yellow { background-color: #ffeb3b; color: #000; }
@@ -73,18 +73,18 @@
         .red { background-color: #f44336; color: #fff; }
         .green { background-color: #4caf50; color: #fff; }
 
-        .rng-section { 
-            margin-top: 25px; 
-            padding-top: 15px; 
-            border-top: 1px solid #333; 
-            width: 100%; 
-            max-width: 600px; 
-            text-align: center; 
+        .rng-section {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
         }
 
         .rng-display { font-size: 3rem; font-weight: bold; color: #ffeb3b; height: 60px; margin-bottom: 5px; }
         .btn-rng { background-color: #444; color: white; width: auto; padding: 12px 25px; font-size: 0.9rem; border-radius: 10px; border: none; cursor: pointer; }
-        
+
         button:active { transform: scale(0.95); }
     </style>
 </head>
@@ -157,7 +157,22 @@
                 { en: "Do you allow yourself to relax in nature and have moments of mindfulness?", es: "¿Te das el tiempo para relajarte en la naturaleza y tener momentos de mindfulness o atención plena?" },
                 { en: "Of the household chores in your home, which are you always responsible for?", es: "De los quehaceres de tu casa, ¿de cuáles te encargas siempre tú?" },
                 { en: "What do you like best and least about your home?", es: "¿Qué es lo que más y lo que menos te gusta de tu casa?" },
-                { en: "If you could have any exotic animal as a pet, what would you choose?", es: "Si pudieras tener cualquier animal exótico de mascota, ¿cuál escogerías?" }    
+                { en: "If you could have any exotic animal as a pet, what would you choose?", es: "Si pudieras tener cualquier animal exótico de mascota, ¿cuál escogerías?" },
+                { en: "What is your favourite colour and why?", es: "¿Cuál es tu color favorito y por qué?" },
+                { en: "If you were a singer, which genre would you most like to sing?", es: "Si fueras cantante, ¿qué género musical te gustaría cantar más?" },
+                { en: "What is a country you'd like to visit?", es: "¿Qué país te gustaría visitar?" },
+                { en: "What do you like most about Peru?", es: "¿Qué es lo que más te gusta de Perú?" },
+                { en: "If you could live in any neighbourhood in Lima, where would you live?", es: "Si pudieras vivir en cualquier barrio de Lima, ¿dónde vivirías?" },
+                { en: "If you had to move away from Lima to any other part of Peru, where would you move to?", es: "Si tuvieras que mudarte de Lima a cualquier otra parte de Perú, ¿a dónde te mudarías?" },
+                { en: "What small thing usually puts you in a good mood?", es: "¿Qué pequeña cosa suele ponerte de buen humor?" },
+                { en: "What app do you use more than any other?", es: "¿Qué aplicación usas más que cualquier otra?" },
+                { en: "What food did you dislike as a child but enjoy now?", es: "¿Qué comida no te gustaba de niño pero ahora disfrutas?" },
+                { en: "What TV series would you recommend to the group?", es: "¿Qué serie de televisión le recomendarías al grupo?" },
+                { en: "What's the most useful thing you've bought recently?", es: "¿Qué es lo más útil que has comprado últimamente?" },
+                { en: "Do you prefer travelling alone, with one person or in a group?", es: "¿Prefieres viajar solo, con una persona o en grupo?" },
+                { en: "Which food from your home country would you recommend everyone try?", es: "¿Qué comida de tu país de origen recomendarías que todos probaran?" },
+                { en: "Do you prefer taking photographs or enjoying the moment without your phone?", es: "¿Prefieres tomar fotos o disfrutar del momento sin tu celular?" },
+                { en: "What's something about you that people would never guess from your appearance?", es: "¿Qué hay de ti que la gente nunca adivinaría por tu apariencia?" }
             ],
             blue: [
                 { en: "What is a lesson you learned the hard way?", es: "¿Qué lección aprendiste por las malas?" },
@@ -203,7 +218,23 @@
                 { en: "How do you show someone that you care about them?", es: "¿Cómo le demuestras a alguien que te importa?" },
                 { en: "What is the hardest part about getting older for you?", es: "¿Qué es lo más bravo de hacerte mayor para ti?" },
                 { en: "What book or movie fundamentally shifted the way you view the world?", es: "¿Qué libro o película te cambió por completo la forma de ver el mundo?" },
-                { en: "Would you like to be famous and if so, for what?", es: "¿Te gustaría ser famoso? Y si es así, ¿por qué motivo?" }
+                { en: "Would you like to be famous and if so, for what?", es: "¿Te gustaría ser famoso? Y si es así, ¿por qué motivo?" },
+                { en: "What is something you've seen in another country that you wish we had in Peru?", es: "¿Qué has visto en otro país que te gustaría que tuviéramos en Perú?" },
+                { en: "What do you do for work at the moment?", es: "¿A qué te dedicas actualmente?" },
+                { en: "Have you ever got lost when travelling?", es: "¿Alguna vez te has perdido viajando?" },
+                { en: "You've been kidnapped. You have to lose a limb, but you get to choose which one. What do you choose?", es: "Te han secuestrado. Tienes que perder una extremidad, pero puedes elegir cuál. ¿Cuál eliges?" },
+                { en: "What was the hardest part of adapting to Peru?", es: "¿Qué fue lo más difícil de adaptarte a Perú?" },
+                { en: "Which famous personality would you like to meet in person?", es: "¿A qué persona famosa te gustaría conocer en persona?" },
+                { en: "What have you learned about yourself through travelling?", es: "¿Qué has aprendido sobre ti mismo viajando?" },
+                { en: "When was the last time you did something for the first time?", es: "¿Cuándo fue la última vez que hiciste algo por primera vez?" },
+                { en: "What's something you wish people understood better about your culture?", es: "¿Qué te gustaría que la gente entendiera mejor sobre tu cultura?" },
+                { en: "How do you decide whose advice to trust?", es: "¿Cómo decides en los consejos de quién confiar?" },
+                { en: "What's a compliment you received that has stayed with you?", es: "¿Qué cumplido te han hecho que todavía recuerdas?" },
+                { en: "How do you usually react when your plans suddenly change?", es: "¿Cómo sueles reaccionar cuando tus planes cambian de repente?" },
+                { en: "What part of your life would you like to make more time for?", es: "¿A qué parte de tu vida te gustaría dedicarle más tiempo?" },
+                { en: "What's a first impression you had of someone that turned out to be completely wrong?", es: "¿Qué primera impresión tuviste de alguien que resultó ser completamente equivocada?" },
+                { en: "What's something you miss about a previous stage of your life?", es: "¿Qué extrañas de una etapa anterior de tu vida?" },
+                { en: "How comfortable are you asking other people for help?", es: "¿Qué tan cómodo te sientes al pedir ayuda a otras personas?" }
             ],
             red: [
                 { en: "If you could know the absolute truth to one question, what would you ask?", es: "Si pudieras saber la verdad absoluta sobre algo, ¿qué preguntarías?" },
@@ -252,7 +283,20 @@
                 { en: "If you could witness any event in the past or future, but couldn't interact with it, what would you choose?", es: "Si pudieras presenciar cualquier evento del pasado o del futuro, pero sin poder intervenir, ¿cuál elegirías?" },
                 { en: "Do you think our constant desire for absolute safety and security holds us back from living fully?", es: "¿Crees que nuestra constante necesidad de seguridad absoluta nos impide vivir a plenitud?" },
                 { en: "What is the most profound realization you've had about your own existence?", es: "¿Cuál ha sido la revelación más profunda que has tenido sobre tu propia existencia?" },
-                { en: "You are suddenly thrown into witness protection with those you currently live with. You are only allowed contact with one other person by telephone for the rest of your life. Who do you choose?", es: "De pronto entras a protección de testigos con los que vives actualmente. Solo se te permite tener contacto telefónico con una persona más por el resto de tu vida. ¿A quién eliges?" }
+                { en: "You are suddenly thrown into witness protection with those you currently live with. You are only allowed contact with one other person by telephone for the rest of your life. Who do you choose?", es: "De pronto entras a protección de testigos con los que vives actualmente. Solo se te permite tener contacto telefónico con una persona más por el resto de tu vida. ¿A quién eliges?" },
+                { en: "What is it that you most desire?", es: "¿Qué es lo que más deseas?" },
+                { en: "Do you believe in extra-terrestrials and, if so, do you believe we are being watched by them?", es: "¿Crees en los extraterrestres y, si es así, crees que nos están observando?" },
+                { en: "Do you have any regrets in life?", es: "¿Hay algo de lo que te arrepientas en la vida?" },
+                { en: "Have you ever been in a situation where you were truly afraid? How did you react?", es: "¿Alguna vez has estado en una situación en la que sentiste verdadero miedo? ¿Cómo reaccionaste?" },
+                { en: "What is your main goal in life?", es: "¿Cuál es tu principal meta en la vida?" },
+                { en: "What part of yourself do you find hardest to show other people?", es: "¿Qué parte de ti te cuesta más mostrarles a los demás?" },
+                { en: "Is there someone you still wish you could have one more conversation with? What would you say?", es: "¿Hay alguien con quien todavía te gustaría poder tener una conversación más? ¿Qué le dirías?" },
+                { en: "How much of the life you're living feels like your own choice?", es: "¿Qué parte de la vida que llevas sientes que has elegido tú mismo?" },
+                { en: "Have you ever stayed in a relationship or friendship because you were afraid of being alone?", es: "¿Alguna vez has mantenido una relación o una amistad por miedo a estar solo?" },
+                { en: "When have you felt most alone, even though other people were around?", es: "¿Cuándo te has sentido más solo, aunque estuvieras rodeado de otras personas?" },
+                { en: "Have you ever achieved something you thought would make you happy, only to find that it didn't?", es: "¿Alguna vez has logrado algo que pensabas que te haría feliz, solo para descubrir que no fue así?" },
+                { en: "What's something you needed to hear when you were younger but nobody said to you?", es: "¿Qué necesitabas escuchar cuando eras más joven, pero nadie te lo dijo?" },
+                { en: "What would having enough mean to you—and would you recognise it when you reached it?", es: "¿Qué significaría para ti tener suficiente en la vida, y te darías cuenta cuando lo alcanzaras?" }
             ],
             green: [
                 { en: "If you won the lottery tomorrow, what is the first thing you'd buy?", es: "Si ganaras la lotería, ¿qué sería lo primero que comprarías?" },
@@ -299,7 +343,18 @@
                 { en: "If you were forced to live completely off the grid in a remote cabin for a year, what three luxury items would you take?", es: "Si te obligaran a vivir totalmente desconectado del mundo en una cabaña por un año, ¿qué tres cosas de lujo te llevarías?" },
                 { en: "If you could only listen to one genre of music for the rest of your life, what would it be?", es: "Si solo pudieras escuchar un género musical por el resto de tu vida, ¿cuál sería?" },
                 { en: "You're on a lifeboat after a disaster with 3 of your friends. One of you has to get off to allow the others to survive. How do you personally seek to resolve it?", es: "Estás en un bote salvavidas con 3 amigos tras un desastre. Uno tiene que bajarse para que los demás sobrevivan. ¿Cómo buscarías resolverlo tú personalmente?" },
-                { en: "If reincarnation exists and you got to choose three aspects of your next life, what would you choose?", es: "Si la reencarnación existiera y pudieras elegir tres aspectos de tu próxima vida, ¿qué elegirías?" }
+                { en: "If reincarnation exists and you got to choose three aspects of your next life, what would you choose?", es: "Si la reencarnación existiera y pudieras elegir tres aspectos de tu próxima vida, ¿qué elegirías?" },
+                { en: "If you could add one extra room to your home, with no limits on space or cost, what would it be for?", es: "Si pudieras añadir una habitación a tu casa, sin límites de espacio ni de presupuesto, ¿para qué la usarías?" },
+                { en: "If you had to run a small business with the person next to you, what would you sell?", es: "Si tuvieras que llevar un pequeño negocio con la persona a tu lado, ¿qué venderían?" },
+                { en: "If you could make one everyday inconvenience disappear forever, which would you choose?", es: "Si pudieras hacer desaparecer para siempre una molestia cotidiana, ¿cuál elegirías?" },
+                { en: "If you could spend a week inside the world of any book, film or TV series, which would you choose?", es: "Si pudieras pasar una semana dentro del mundo de cualquier libro, película o serie de televisión, ¿cuál elegirías?" },
+                { en: "If you could bring back one discontinued product or closed business, what would it be?", es: "Si pudieras recuperar un producto que ya no se fabrica o reabrir un negocio que cerró, ¿cuál sería?" },
+                { en: "If you had to teach the group a one-hour class tomorrow, what would you teach?", es: "Si mañana tuvieras que darle al grupo una clase de una hora, ¿qué enseñarías?" },
+                { en: "If you had to give up either the internet or motorised transport for a year, which would you choose?", es: "Si tuvieras que renunciar a internet o al transporte motorizado durante un año, ¿cuál elegirías?" },
+                { en: "If you had to spend a month without speaking, how would you communicate?", es: "Si tuvieras que pasar un mes sin hablar, ¿cómo te comunicarías?" },
+                { en: "If you could choose what you dream about tonight, what would you choose?", es: "Si pudieras elegir con qué soñar esta noche, ¿qué elegirías?" },
+                { en: "If you could choose one person to narrate your daily life, whose voice would you choose?", es: "Si pudieras elegir a una persona para narrar tu vida diaria, ¿qué voz elegirías?" },
+                { en: "If you could have a ten-minute conversation with the Earth itself, what would you ask?", es: "Si pudieras tener una conversación de diez minutos con la Tierra misma, ¿qué le preguntarías?" }
             ]
         };
 
@@ -307,10 +362,10 @@
             const list = questions[color];
             const randomIndex = Math.floor(Math.random() * list.length);
             const selection = list[randomIndex];
-            
+
             document.getElementById('en').innerText = selection.en;
             document.getElementById('es').innerText = selection.es;
-            
+
             // Updates border color to match category
             document.getElementById('display').style.borderColor = getComputedStyle(document.querySelector('.' + color)).backgroundColor;
         }
